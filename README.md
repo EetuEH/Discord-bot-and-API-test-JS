@@ -2,6 +2,6 @@
 
 A simple Discord bot using Javascript and ran with node.js.
 
-Commands:
-  -".ping" = Returns the latency of the bot(x ms)
-  -
+list of commands
+-".ping" = Returns the latency of the bot(x ms)
+-
