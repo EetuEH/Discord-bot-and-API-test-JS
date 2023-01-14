@@ -1,7 +1,6 @@
 # Discord-bot-and-API-test-JS
 
-A simple Discord bot using Javascript and ran with node.js.
+A simple Discord bot using Javascript and ran with node.js. Some commands are listed below.
 
-list of commands
--".ping" = Returns the latency of the bot(x ms)
--
+.ping = Returns the latency of the bot(x ms)
+
