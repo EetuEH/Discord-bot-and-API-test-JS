@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { discord, Client, Intents, GatewayIntentBits } = require('discord.js');
+const { fetch } = require('node-fetch');
 
 //Botin alustaminen ja oikeuksien kanssa säätämistä.
 const client = new Client({ intents: [
@@ -25,6 +26,17 @@ client.on('messageCreate', (message) => {
         message.channel.send(`Pong! viiveet: ${Date.now() - message.createdTimestamp}ms, ${client.ws.ping}ms `);
     }
 
+    if(message.content === '.joke'){
+        const getJoke = async () => {
+            const result = await fetch('https://official-joke-api.appspot.com/jokes/random');
+            const json = await result.json();
+            return json;
+        }
+        const joke = getJoke();
+
+        console.log('koitetaan');
+        message.channel.send(`${joke.setup} ${joke.punchline}`);
+    }
     
 });
 
