@@ -14,12 +14,13 @@ const client = new Client({ intents: [
     allowedMentions: {parse: ['users', 'roles'], repliedUser: true}
 });
 
+//Ilmoitus terminaaliin, kun botti on valmiina.
 client.on('ready', () => {
     console.log(`sisäänkirjautuminen käyttäjänä: ${client.user.tag}`)
 });
 
 client.on('messageCreate', (message) => {
-    //Ignore messages sent by the bot.
+    //Jättää huomiotta botin omat viestit.
     if (message.author.bot) return;
     console.log(`[${message.author.tag}]: ${message.content}`)
 
@@ -28,6 +29,7 @@ client.on('messageCreate', (message) => {
         message.channel.send(`Pong! viiveet: ${Date.now() - message.createdTimestamp}ms, ${client.ws.ping}ms `);
     }
 
+    //Kirjoittaa chattiin satunnaisen vitsin komennolla ".joke"
     if(message.content === '.joke'){
         const getJoke = async () => {
             const result = await fetch('https://official-joke-api.appspot.com/jokes/random');
