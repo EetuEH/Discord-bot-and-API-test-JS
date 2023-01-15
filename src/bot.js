@@ -1,6 +1,8 @@
-require('dotenv').config();
-const { discord, Client, Intents, GatewayIntentBits } = require('discord.js');
-const { fetch } = require('node-fetch');
+import dotenv from 'dotenv';
+dotenv.config();
+import pkg from 'discord.js';
+const {discord, Client, Intents, GatewayIntentBits} = pkg;
+import fetch from "node-fetch";
 
 //Botin alustaminen ja oikeuksien kanssa säätämistä.
 const client = new Client({ intents: [
@@ -32,10 +34,12 @@ client.on('messageCreate', (message) => {
             const json = await result.json();
             return json;
         }
-        const joke = getJoke();
+        let joke;
 
-        console.log('koitetaan');
-        message.channel.send(`${joke.setup} ${joke.punchline}`);
+        getJoke().then((data) => {
+            joke = data;
+            message.channel.send(`${joke.setup} ${joke.punchline}`);
+        })
     }
     
 });
