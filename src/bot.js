@@ -42,7 +42,7 @@ client.on('messageCreate', (message) => {
             joke = data;
             message.channel.send(`${joke.setup} ${joke.punchline}`);
         })
-    }
+    };
     
 });
 
