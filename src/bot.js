@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import pkg from 'discord.js';
-const {discord, Client, Intents, GatewayIntentBits} = pkg;
+import { Client, Intents, GatewayIntentBits } from 'discord.js';
 import fetch from "node-fetch";
 
 //Botin alustaminen ja oikeuksien kanssa säätämistä.
